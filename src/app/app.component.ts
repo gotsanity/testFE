@@ -1,3 +1,4 @@
+import { FirstService } from './services/first.service';
 import { Component, OnInit } from '@angular/core';
 import { interval, Observable } from 'rxjs';
 import { ChatMessage } from './models/chat';
@@ -9,25 +10,15 @@ import { ChatMessage } from './models/chat';
 })
 export class AppComponent implements OnInit {
   isLoaded: boolean = false;
-  
-  obs: Observable<number> = interval(5000);
 
   data: ChatMessage[] = [];
 
-  ngOnInit(): void {
+  constructor(public service: FirstService) {}
 
-    this.obs.subscribe((d) => {
-      // this.isLoaded = true;
-      //this.toggleLoaded();
-      this.data.push({
-        name: "data" + d,
-        message: "toast" + d,
-        author: "someone",
-        created_on: new Date,
-        updated_on: new Date,
-        channel: "news"
-      });
-    })
+  ngOnInit(): void {
+    this.service.getMessage().subscribe((data) => {
+      this.data = data;
+    });
   }
 
 
