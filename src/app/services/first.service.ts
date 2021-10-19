@@ -12,23 +12,22 @@ export class FirstService {
   public data: ChatMessage[] = [];
 
   constructor() {
-    this.obs.subscribe(this.addData);
-  }
+    this.obs.subscribe(digit => {
+      // console.log('i have recieve a message from the observable', digit);
 
-  private addData(digit: Number) {
-    var obj = {
-      name: "data" + digit,
-      message: "toast" + digit,
-      author: "someone",
-      created_on: new Date,
-      updated_on: new Date,
-      channel: "news"
-    };
-
-    this.data.push(obj);
+      this.data.push({
+        name: "data" + digit,
+        message: "toast" + digit,
+        author: "someone",
+        created_on: new Date,
+        updated_on: new Date,
+        channel: "news"
+      });
+    });
   }
 
   public getMessage(): Observable<ChatMessage[]> {
+    // console.log('I am subscribing to the getMessage', this.data);
     return of(this.data);
   }
 }
