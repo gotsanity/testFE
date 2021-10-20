@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FirstService } from './services/first.service';
 import { ChatListComponent } from './chatList/chatList.component';
+import { ChatMessageComponent } from './chatMessage/chatMessage.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
-      ChatListComponent
+      ChatListComponent,
+      ChatMessageComponent
    ],
   imports: [
     BrowserModule

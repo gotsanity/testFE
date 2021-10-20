@@ -1,0 +1,25 @@
+.chat-message {
+    border: 1px solid black;
+    background-color: lightgray;
+    margin: 1em;
+    padding: 1em;
+}
+
+// .channel,
+// .username,
+// .message,
+// .created-date,
+// .updated-date,
+// .author {
+//     display: inline;
+// }
+
+
+.channel {
+    font-weight: bold;
+    font-size: large;
+}
+
+.username {
+    color: darkblue;
+}

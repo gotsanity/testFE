@@ -1,11 +1,5 @@
-<div *ngIf="isLoaded">
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-  </ul>
+<ul class="chat-list">
+  <li *ngFor="let item of messages"><app-chatMessage [message]="item"></app-chatMessage></li>
+</ul>
   
-  <pre>
-    messages contains:
-    {{ messages }}
-  </pre>
-</div>
+<pre>{{ messages | json }}</pre>
