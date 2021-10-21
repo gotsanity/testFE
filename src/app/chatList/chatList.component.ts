@@ -17,6 +17,10 @@ export class ChatListComponent implements OnInit {
       console.log("chatlist recieved: ", data);
       this.messages = data;
     });
+
+    this.service.getChannels().subscribe((data) => {
+      console.log("the component got the following channels: ", data);
+    });
   }
 
   ngOnInit(): void {
